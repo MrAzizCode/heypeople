@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xssed lol</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #ff0000;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .terminal {
+            width: 90%;
+            max-width: 1400px;
+            background-color: #111;
+            border: 2px solid #ff0000;
+            padding: 20px;
+            box-shadow: 0px 0px 20px 5px rgba(255, 0, 0, 0.7);
+            text-align: left;
+            position: relative;
+        }
+        .line {
+            margin: 10px 0;
+            display: none;
+        }
+        .glitch {
+            display: inline-block;
+            position: relative;
+            color: #ff0000;
+            animation: glitch 2s infinite;
+        }
+        .progress-bar {
+            font-family: 'Courier New', monospace;
+            color: #ff0000;
+            margin-top: 10px;
+        }
+        .warning {
+            font-family: 'Courier New', monospace;
+            color: #ff0000;
+            background-color: rgba(255, 0, 0, 0.1);
+            padding: 5px;
+            display: inline-block;
+            border-left: 4px solid #ff0000;
+            margin-top: 10px;
+            display: none;
+        }
+        .popup {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            background-color: #200;
+            border: 1px solid red;
+            padding: 10px;
+            width: 300px;
+            display: none;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .popup p {
+            color: #ffcccc;
+        }
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px #ff0000; }
+            25% { text-shadow: -2px -2px #ff0000; }
+            50% { text-shadow: 4px 4px #ff0000; }
+            75% { text-shadow: -4px -4px #ff0000; }
+            100% { text-shadow: 0 0 #ff0000; }
+        }
+
+        @keyframes type {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="line glitch">!!! WARNING: SYSTEM HACKED BY AZIZ :> !!!</div>
+        <div class="line">Initiating questionable decisions...</div>
+        <div class="line progress-bar">[####..............] 15%</div>
+
+        <div class="line">Searching for your weirdest Google searches...</div>
+        <div class="line progress-bar">[#######...........] 35%</div>
+
+        <div class="line warning">ALERT: Your e-kitten photos have been forwarded to your mom!</div>
+
+        <div class="line">Downloading your nudes... Oh wait, Why is your dick so small!?</div>
+        <div class="line progress-bar">[#########.........] 55%</div>
+
+        <div class="line warning">ALERT: All of your dating app profiles have been set to "desperate."</div>
+
+        <div class="line">Hacking into Netflix... Just kidding, not paying for it.</div>
+        <div class="line progress-bar">[###########.......] 70%</div>
+
+        <div class="line">Adding you to 100 spam email lists...</div>
+        <div class="line progress-bar">[#############.....] 85%</div>
+
+        <div class="line">Forcing your Discord status to "Feeling lonely..."</div>
+        <div class="line progress-bar">[###############...] 95%</div>
+
+        <div class="line">Your search history has been logged and sent to police MF</div>
+        <div class="line progress-bar">[##################] 100%</div>
+
+        <div class="line glitch">Self-destruct sequence engaged... Good luck, sucker!</div>
+
+        <div class="popup">
+            <p>!!! SYSTEM FAILURE !!!</p>
+            <p>Your fridge is now empty. Also, your gym subscription has been renewed.</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lines = document.querySelectorAll('.line');
+            const popup = document.querySelector('.popup');
+            let index = 0;
+
+            function showLine() {
+                if (index < lines.length) {
+                    const currentLine = lines[index];
+                    currentLine.style.display = 'block';
+                    index++;
+
+                    if (index === 10) {
+                        setTimeout(() => popup.style.display = 'block', 1000);
+                    }
+
+                    setTimeout(showLine, 1500);
+                }
+            }
+            showLine();
+        });
+    </script>
+</body>
+</html>
